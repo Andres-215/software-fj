@@ -76,3 +76,27 @@ class AlquilerEquipo(Servicio):
     def descripcion(self):
 
         return f"Servicio de alquiler de equipos: {self.nombre}"
+    
+# =========================================
+# CLASE ASESORIA
+# =========================================
+
+# Esta clase hereda de Servicio
+class Asesoria(Servicio):
+
+    # Método para calcular el costo
+    def calcular_costo(self, horas):
+
+        # Validamos las horas
+        if horas <= 0:
+            raise ValueError("Las horas deben ser mayores a cero")
+
+        # Calculamos el total con incremento del 15%
+        total = (self.precio_base * horas) * 1.15
+
+        return total
+
+    # Método descripción
+    def descripcion(self):
+
+        return f"Servicio de asesoría especializada: {self.nombre}"
