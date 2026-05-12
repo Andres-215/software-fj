@@ -52,3 +52,27 @@ class ReservaSala(Servicio):
     def descripcion(self):
 
         return f"Servicio de reserva de sala: {self.nombre}"
+    
+# =========================================
+# CLASE ALQUILER DE EQUIPOS
+# =========================================
+
+# Esta clase hereda de Servicio
+class AlquilerEquipo(Servicio):
+
+    # Método para calcular el costo
+    def calcular_costo(self, horas):
+
+        # Validamos las horas
+        if horas <= 0:
+            raise ValueError("Las horas deben ser mayores a cero")
+
+        # Calculamos el total
+        total = (self.precio_base * horas) + 20
+
+        return total
+
+    # Método descripción
+    def descripcion(self):
+
+        return f"Servicio de alquiler de equipos: {self.nombre}"
